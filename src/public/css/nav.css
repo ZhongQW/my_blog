@@ -1,0 +1,37 @@
+/*
+    Create by WebStorm.
+    User: ZhongQw
+    Date: 2018/10/10
+    Time: 21:07
+*/
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-color: white;
+}
+#nav{
+    background-color: cadetblue;
+    height: 57px;
+    color: white;
+
+}
+#nav>ul>li{
+    display: inline-block;
+    font: 18px/45px "宋体";
+    padding: 6px 20px 6px 20px;
+    transition: 0.5s;
+}
+#nav>ul>li:nth-child(6){
+    float: right;
+    margin-right: 50px;
+}
+#nav>ul>li:nth-child(1){
+    margin-left: 45px;
+}
+#nav>ul>li:hover{
+    background-color: green;
+    border-radius: 5px;
+    cursor: pointer;
+}
