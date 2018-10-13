@@ -1,0 +1,22 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body{
+  background: #E8DFD8 url('../img/background.jpg') 50% top scroll no-repeat;
+  width: auto;
+  height: auto;
+}
+
+/*写文章*/
+ul li {
+  line-height: 24px;
+}
+blockquote {
+  border-left:#eee solid 5px;
+  padding-left:20px;
+}
+code {
+  color:#D34B62;
+  background: #F9F2F4;
+}
