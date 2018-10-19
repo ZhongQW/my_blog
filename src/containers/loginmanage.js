@@ -21,6 +21,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         onLoginInfo: () => {
             dispatch({type: 'GETLOGININFO'})
+        },
+        onDelLogin: (data) => {
+            dispatch({type: 'DELLOGIN', data: data});
         }
     }
 };

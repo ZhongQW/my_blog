@@ -10,7 +10,9 @@ export default (state = {loginInfo: []},action) =>{
         return Object.assign({}, state);
     }else if(action.type === "GET_LOGIN_INFO"){
         state.loginInfo = action.data;
-        // console.log(state.loginInfo);
+        return Object.assign({}, state);
+    }else if(action.type === "DEL_LOGIN_INFO"){
+        state.loginInfo = action.data;
         return Object.assign({}, state);
     }
     return state

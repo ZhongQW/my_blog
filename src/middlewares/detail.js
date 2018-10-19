@@ -1,32 +1,21 @@
 /*
     Create by WebStorm.
     User: ZhongQw
+    Date: 2018/10/19
+    Time: 20:22
+*/
+/*
+    Create by WebStorm.
+    User: ZhongQw
     Date: 2018/10/10
     Time: 20:11
 */
 import request from 'superagent';
 
 export default store => next => action => {
-    if (action.type === 'GETARTICLEINFO') {
-        request.post('http://localhost:8888/article/getall')
-            .send()
-            .end((err, res) => {
-                if (err) {
-                    alert(err.result);
-                }else if(res.body.error){
-                    alert(res.body.result);
-                }else{
-                    // console.log(res.body.result);
-                    next({type: "GET_ARTICLE_INFO", data: res.body.result});
-                }
-            });
-    }else if (action.type === 'ADDARTICLE') {
-        window.location.href = '/detail/addArticle';
-    }else if (action.type === 'UPDATEARTICLE') {
-        window.location.href = '/detail/id='+action.data.id;
-    }else if (action.type === 'DELARTICLE') {
-        // console.log(action.data);
-        request.post('http://localhost:8888/article/delete')
+    if (action.type === 'GETARTICLE') {
+        // alert(action.data.id);
+        request.post('http://localhost:8888/article/getone')
             .send(action.data)
             .end((err, res) => {
                 if (err) {
@@ -34,7 +23,21 @@ export default store => next => action => {
                 }else if(res.body.error){
                     alert(res.body.result);
                 }else{
-                    next({type: "DEL_ARTICLE_INFO", data: res.body.result});
+                    // console.log(res.body.result);
+                    next({type: "GET_ONE_ARTICLE_INFO", data: res.body.result[0]});
+                }
+            });
+    }else if (action.type === 'UPDATEARTICLE') {
+        request.post('http://localhost:8888/article/update')
+            .send(action.data)
+            .end((err, res) => {
+                if (err) {
+                    alert(err.result);
+                } else if (res.body.error) {
+                    alert(res.body.result);
+                } else {
+                    // console.log(res.body.result);
+                    next({type: "UPDATE_ARTICLE_INFO", data: res.body.result});
                 }
             });
     }

@@ -9,10 +9,16 @@ import login from './login';
 import nav from './nav';
 import info from './info';
 import loginmanage from './loginmange';
+import article from './article';
+import addArticle from './addArticle';
+import detail from './detail';
 
 export default combineReducers({
     login,
     nav,
     info,
-    loginmanage
+    loginmanage,
+    article,
+    addArticle,
+    detail
 });

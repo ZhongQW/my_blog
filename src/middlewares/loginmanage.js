@@ -26,10 +26,23 @@ export default store => next => action => {
             .end((err, res) => {
                 if (err) {
                     alert(err.result);
+                } else if (res.body.error) {
+                    alert(res.body.result);
+                } else {
+                    next({type: "GET_LOGIN_INFO", data: res.body.result});
+                }
+            });
+    }else if (action.type === 'DELLOGIN') {
+        console.log(action.data);
+        request.post('http://localhost:8888/admin/del')
+            .send(action.data)
+            .end((err, res) => {
+                if (err) {
+                    alert(err.result);
                 }else if(res.body.error){
                     alert(res.body.result);
                 }else{
-                    next({type: "GET_LOGIN_INFO", data: res.body.result});
+                    next({type: "DEL_LOGIN_INFO", data: res.body.result});
                 }
             });
     }

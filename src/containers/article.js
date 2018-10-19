@@ -12,7 +12,7 @@ import {connect} from 'react-redux';
 */
 const mapStateToProps = (state)=>{
     return {
-        state
+        articleInfo: state.article.articleInfo
     }
 };
 
@@ -21,10 +21,19 @@ const mapStateToProps = (state)=>{
 */
 const mapDispatchToProps = (dispatch) => {
     return {
-        onLogin: (loginInfo) => {
-            // console.log(loginInfo);
-            dispatch({type: 'LOGIN', data: loginInfo})
+        onArticleInfo: ()=>{
+            dispatch({type: 'GETARTICLEINFO'})
         },
+        onAddArticle: ()=>{
+            dispatch({type: 'ADDARTICLE'})
+        },
+        onUpdateArticle: (data)=>{
+            dispatch({type: 'UPDATEARTICLE', data: data})
+        },
+        onDeleteArticle: (data)=>{
+            console.log(data);
+            dispatch({type: 'DELARTICLE', data: data})
+        }
     }
 };
 

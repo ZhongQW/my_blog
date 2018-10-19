@@ -29,27 +29,41 @@ export default class Loginmanage extends Component {
             };
             this.props.onAddLogin(data);
         }
+        this.refs.username.value = '';
+        this.refs.password.value = '';
+        this.refs.confirmPassword.value = '';
     }
+    onDelLogin(id){
+        if(id === 1){
+            alert('This Account is not allowed to be deleted!');
+            return ;
+        }
+        let data = {
+            userId: id
+        };
+        this.props.onDelLogin(data);
+    }
+
     render() {
-        console.log(this.props.loginInfo);
         const loginList = this.props.loginInfo.map((login) => {
             return <tr key={login.userId}>
                         <td>{login.userName}</td>
                         <td>{login.userPassword}</td>
-                        <td>删除</td>
-                        <td>修改</td>
+                        <td onClick={this.onDelLogin.bind(this,login.userId)}>删除</td>
                     </tr>
         });
         return(
             <div id="login_manage_back">
-                <div id="login_manage" cellpadding="20">
+                <div id="login_manage" cellPadding="20">
                 <table>
+                    <tbody>
                     <tr>
                         <th>登录名</th>
                         <th>密码</th>
-                        <th colSpan="2">操作</th>
+                        <th>操作</th>
                     </tr>
                     {loginList}
+                    </tbody>
                 </table>
                 <button className="addLogin" data-toggle="modal" data-target="#addLogin">增加</button>
             </div>

@@ -1,0 +1,14 @@
+/*
+    Create by WebStorm.
+    User: ZhongQw
+    Date: 2018/10/17
+    Time: 19:54
+*/
+#main{
+    background: url("../img/back5.jpg") no-repeat;
+    background-size: 100% 650px;
+    margin-top: -10px;
+    width: 100%;
+    height: 643px;
+    color: gray;
+}
