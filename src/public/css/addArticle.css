@@ -1,0 +1,16 @@
+/*
+    Create by WebStorm.
+    User: ZhongQw
+    Date: 2018/10/24
+    Time: 20:48
+*/
+#modal>span{
+    font-size: 16px;
+    display: inline-block;
+    margin-right: 10px;
+}
+#modal select{
+    margin-left: 10px;
+    width: 140px;
+    height: 40px;
+}

@@ -8,7 +8,45 @@ import React,{Component} from 'react';
 import '../public/css/words.css'
 
 export default class Words extends Component{
+    componentDidMount(){
+        this.props.onGetWords();
+    }
+    onReply(id){
+        const text = prompt("留言回复：");
+        if(text) {
+            const data = {
+                id: id,
+                value: text
+            };
+            this.props.onReplyWords(data);
+        }
+    }
+    onDelete(id){
+        const data ={
+            id: id
+        };
+        this.props.onDeleteWords(data);
+    }
+    onDelReply(id){
+        const data ={
+            id: id
+        };
+        this.props.onDeleteWordsReply(data);
+    }
     render(){
+        // console.log(this.props);
+        const wordsList = this.props.wordsInfo.map((words) => {
+            return <tr key={words.wordsBlogId}>
+                <td>{words.wordsPersonName}</td>
+                <td>{words.wordsPersonEmail}</td>
+                <td>{words.wordsTime}</td>
+                <td>{words.wordsContent}</td>
+                <td>{words.wordsReply}</td>
+                <td onClick={this.onDelReply.bind(this, words.wordsBlogId)}>删除</td>
+                <td onClick={this.onReply.bind(this, words.wordsBlogId)}>回复</td>
+                <td onClick={this.onDelete.bind(this, words.wordsBlogId)}>删除留言</td>
+            </tr>
+        });
         return(
             <div id="words">
                 <div id="words_" cellPadding="16">
@@ -17,34 +55,12 @@ export default class Words extends Component{
                         <tr>
                             <th>留言者姓名</th>
                             <th>留言者邮箱</th>
-                            <th>留言者文章</th>
+                            <th>留言者时间</th>
                             <th>留言者内容</th>
+                            <th colSpan="2">我的回复</th>
                             <th colSpan="2">操作</th>
                         </tr>
-                        <tr>
-                            <td>zhongqw</td>
-                            <td>2208982655@qq.com</td>
-                            <td>java类的继承</td>
-                            <td>写的真好!</td>
-                            <td>回复</td>
-                            <td>删除</td>
-                        </tr>
-                        <tr>
-                            <td>zhongqw</td>
-                            <td>2208982655@qq.com</td>
-                            <td>c的指针</td>
-                            <td>写的真好!</td>
-                            <td>回复</td>
-                            <td>删除</td>
-                        </tr>
-                        <tr>
-                            <td>zhongqw</td>
-                            <td>2208982655@qq.com</td>
-                            <td>我不是药神</td>
-                            <td>写的真好!</td>
-                            <td>回复</td>
-                            <td>删除</td>
-                        </tr>
+                        {wordsList}
                         </tbody>
                     </table>
                 </div>

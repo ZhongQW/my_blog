@@ -12,7 +12,7 @@ import {connect} from 'react-redux';
 */
 const mapStateToProps = (state)=>{
     return {
-        state
+        wordsInfo: state.words.wordsInfo
     }
 };
 
@@ -21,10 +21,18 @@ const mapStateToProps = (state)=>{
 */
 const mapDispatchToProps = (dispatch) => {
     return {
-        onLogin: (loginInfo) => {
-            // console.log(loginInfo);
-            dispatch({type: 'LOGIN', data: loginInfo})
+        onGetWords: () => {
+            dispatch({type: 'GETWORDS'})
         },
+        onReplyWords: (data) => {
+            dispatch({type: 'REPLYWORDS', data: data})
+        },
+        onDeleteWords: (data) => {
+            dispatch({type: 'DELETEWORDS', data: data})
+        },
+        onDeleteWordsReply: (data)=> {
+            dispatch({type: 'DELETEREPLY', data: data})
+        }
     }
 };
 

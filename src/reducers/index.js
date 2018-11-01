@@ -12,6 +12,8 @@ import loginmanage from './loginmange';
 import article from './article';
 import addArticle from './addArticle';
 import detail from './detail';
+import words from './words';
+import articleWords from './articleWords';
 
 export default combineReducers({
     login,
@@ -20,5 +22,7 @@ export default combineReducers({
     loginmanage,
     article,
     addArticle,
-    detail
+    detail,
+    words,
+    articleWords
 });

@@ -20,7 +20,8 @@ const mapDispatchToProps = (dispatch) => {
             dispatch({type: 'GETARTICLE',data: data})
         },
         onUpdate: (data) => {
-            dispatch({type: 'UPDATEARTICLE',data: data})
+            // console.log(data);
+            dispatch({type: 'UPDATE',data: data})
         }
     }
 };

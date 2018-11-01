@@ -16,9 +16,9 @@
     padding-top: 10px;
 }
 #words_>table{
-    width: 88%;
+    width: 98%;
     position: relative;
-    left: 90px;
+    left: 13px;
 }
 #words_>table>tbody>tr:nth-child(1){
     border: black solid 1px;
@@ -80,4 +80,20 @@
     border: #eeeeee 1px solid;
     text-indent: 5px;
     color: black;
+}
+#words_>table>tbody tr td:nth-child(6){
+    font-weight: normal;
+}
+#words_>table>tbody tr td:nth-child(6):hover{
+    font-size: 10px;
+    font-weight: normal;
+    color: red;
+}
+#words_>table>tbody tr td:nth-child(8){
+    font-weight: normal;
+}
+#words_>table>tbody tr td:nth-child(8):hover{
+    font-size: 10px;
+    font-weight: normal;
+    color: red;
 }

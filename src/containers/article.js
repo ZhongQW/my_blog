@@ -11,9 +11,12 @@ import {connect} from 'react-redux';
     将组件中的state映射到loginSuccess
 */
 const mapStateToProps = (state)=>{
+    // console.log(state);
     return {
-        articleInfo: state.article.articleInfo
-    }
+        articleInfo: state.article.articleInfo,
+        articleWords: state.articleWords.oneArticleWords
+
+}
 };
 
 /*
@@ -31,8 +34,11 @@ const mapDispatchToProps = (dispatch) => {
             dispatch({type: 'UPDATEARTICLE', data: data})
         },
         onDeleteArticle: (data)=>{
-            console.log(data);
+            // console.log(data);
             dispatch({type: 'DELARTICLE', data: data})
+        },
+        onWordsOne: (data)=>{
+            dispatch({type: 'ONEARTICLEWORDS', data: data})
         }
     }
 };

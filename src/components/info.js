@@ -17,7 +17,7 @@ export default class Info extends Component{
             nickname: this.refs.userNickName.value,
             name: this.refs.userName.value,
             title: this.refs.userTitle.value,
-            age: this.refs.userAge.value,
+            birth: this.refs.userAge.value,
             sex: this.refs.userSex.value,
             email: this.refs.userEmail.value,
             job: this.refs.userJob.value,
@@ -26,11 +26,11 @@ export default class Info extends Component{
         };
         this.props.onUpdataInfo(data);
     }
-    inputonFocus(e){
+    inputOnFocus(e){
         e.target.value = '';
     }
     render(){
-        // console.log(this.props);
+        console.log(this.props);
         return(
         <div id="info_back">
            <div id="info">
@@ -57,7 +57,7 @@ export default class Info extends Component{
                     <li>
                         <i className="fa fa-modx" aria-hidden="true"/>
                         <span>年龄：</span>
-                        <span className="span">{this.props.userInfo.age}</span>
+                        <span className="span">{this.props.userInfo.birth }</span>
                     </li>
                     <li>
                         <i className="fa fa-modx" aria-hidden="true"/>
@@ -102,7 +102,7 @@ export default class Info extends Component{
                                     <div>
                                         <i className="fa fa-star-half-o" aria-hidden="true"/>
                                         <span>姓名：</span>
-                                        <input type="text" ref="userName" onFocus={this.inputonFocus} defaultValue={this.props.userInfo.name} className="inputK"/>
+                                        <input type="text" ref="userName" onFocus={this.inputOnFocus} defaultValue={this.props.userInfo.name} className="inputK"/>
                                     </div>
                                     <div>
                                         <i className="fa fa-star-half-o" aria-hidden="true"/>
@@ -117,7 +117,7 @@ export default class Info extends Component{
                                     <div>
                                         <i className="fa fa-star-half-o" aria-hidden="true"/>
                                         <span>年龄：</span>
-                                        <input type="text" ref="userAge" onFocus={this.inputOnFocus} defaultValue={this.props.userInfo.age} className="inputK"/>
+                                        <input type="text" ref="userAge" onFocus={this.inputOnFocus} defaultValue={this.props.userInfo.birth } className="inputK"/>
                                     </div>
                                     <div>
                                         <i className="fa fa-star-half-o" aria-hidden="true"/>

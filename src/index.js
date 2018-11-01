@@ -14,6 +14,7 @@ import middleLoginManage from './middlewares/loginmanage';
 import middleArticle from './middlewares/article';
 import middleDetailArticle from './middlewares/detail';
 import middleAddArticle from './middlewares/addArticle';
+import middleWords from './middlewares/words';
 
 import login from './containers/login'; //登录
 import nav from './containers/nav'; //导航
@@ -26,7 +27,8 @@ import detail from './containers/detail'; //文章详情
 import addArticle from './containers/addArticle'; //增加文章
 
 const createMiddlewareStore = applyMiddleware(
-    middleLogin, middleNav, middleInfo, middleLoginManage, middleArticle,middleDetailArticle,middleAddArticle
+    middleLogin, middleNav, middleInfo, middleLoginManage, middleArticle,
+    middleDetailArticle,middleAddArticle,middleWords
 )(createStore);
 const store = createMiddlewareStore(reducer);
 
@@ -39,7 +41,7 @@ render(
                     <IndexRoute components={home} />
                     <Route path="/article" components={article}/>
                     <Route path="/detail/:articleId" components={detail}/>
-                    <Route path="/detail/addArticle" components={addArticle}/>
+                    <Route path="/addArticle" components={addArticle}/>
                     <Route path="/words" components={words}/>
                     <Route path="/info" components={info}/>
                     <Router path="/loginmanage" components={loginmanage}/>

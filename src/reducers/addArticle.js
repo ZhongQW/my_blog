@@ -5,7 +5,7 @@
     Time: 20:36
 */
 export default (state = {articleInfo: []},action) =>{
-    if(action.type === "ADD_ARTICLE_INFO"){
+    if(action.type === "PUBLIC_ARTICLE"){
         state.articleInfo = action.data;
         return Object.assign({}, state);
     }

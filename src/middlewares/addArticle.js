@@ -7,7 +7,7 @@
 import request from 'superagent';
 
 export default store => next => action => {
-    if (action.type === 'ADDARTICLE') {
+    if (action.type === 'PUBLICARTICLE') {
         request.post('http://localhost:8888/article/add')
             .send(action.data)
             .end((err, res) => {
@@ -16,7 +16,7 @@ export default store => next => action => {
                 }else if(res.body.error){
                     alert(res.body.result);
                 }else{
-                    next({type: "ADD_ARTICLE_INFO", data: res.body.result});
+                    // next({type: "PUBLIC_ARTICLE", data: res.body.result});
                     window.location.href = '/article';
                 }
             });

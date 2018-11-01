@@ -15,8 +15,9 @@ const mapStateToProps = (state)=>{
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onHandleClick: (data)=>{
-            dispatch({type: 'ADDARTICLE', data: data});
+        onHandlePublic: (data)=>{
+            // console.log(data);
+            dispatch({type: 'PUBLICARTICLE', data: data});
         }
     }
 };

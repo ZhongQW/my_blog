@@ -37,6 +37,19 @@ export default store => next => action => {
                     next({type: "DEL_ARTICLE_INFO", data: res.body.result});
                 }
             });
+    }else if (action.type === 'ONEARTICLEWORDS') {
+        // console.log(action.data);
+        request.post('http://localhost:8888/words/getwords')
+            .send(action.data)
+            .end((err, res) => {
+                if (err) {
+                    alert(err.result);
+                }else if(res.body.error){
+                    alert(res.body.result);
+                }else{
+                    next({type: "ONE_ARTICLE_WORDS", data: res.body.result});
+                }
+            });
     }
     else
         next(action);

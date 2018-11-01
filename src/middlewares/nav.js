@@ -5,8 +5,6 @@
     Time: 19:26
 */
 
-import request from "superagent";
-
 export default store => next => action => {
     if (action.type === 'HOME') {
         console.log('1');
