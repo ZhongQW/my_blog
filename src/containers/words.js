@@ -24,13 +24,13 @@ const mapDispatchToProps = (dispatch) => {
         onGetWords: () => {
             dispatch({type: 'GETWORDS'})
         },
-        onReplyWords: (data) => {
+        onBlogReplyWords: (data) => {
             dispatch({type: 'REPLYWORDS', data: data})
         },
-        onDeleteWords: (data) => {
+        onBlogDeleteWords: (data) => {
             dispatch({type: 'DELETEWORDS', data: data})
         },
-        onDeleteWordsReply: (data)=> {
+        onBlogDeleteWordsReply: (data)=> {
             dispatch({type: 'DELETEREPLY', data: data})
         }
     }

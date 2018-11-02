@@ -37,14 +37,29 @@ export default class Article extends Component{
     onPersonInfo(email){
         prompt('邮箱',email);
     }
-    onDelWords(){
-        alert('onDelWords');
+    onDelWords(articleId, wordsId){
+        const data = {
+            wordsId: wordsId,
+            articleId: articleId
+        };
+        console.log(data);
+        this.props.onDelWords(data);
     }
-    onReplyWords(){
-        alert('onReplyWords');
+    onReplyWords(articleId, wordsId){
+        const replyValue = prompt('我的回复');
+        const data = {
+            wordsId: wordsId,
+            articleId: articleId,
+            replyValue: replyValue
+        };
+        this.props.onReplyWords(data);
     }
-    onDelReply(){
-        alert('onDelReply');
+    onDelReply(articleId, wordsId){
+        const data = {
+            wordsId: wordsId,
+            articleId: articleId
+        };
+        this.props.onDelReply(data);
     }
     render(){
         // console.log(this.props);
@@ -66,13 +81,13 @@ export default class Article extends Component{
                     <span onClick={this.onPersonInfo.bind(this, words.wordsPersonEmail)}>{words.wordsPersonName}</span>
                     <span>留言：</span>
                     <span>{words.wordsContent}</span>
-                    <Link onClick={this.onDelWords.bind(this, words.wordsArticleId)}>删除留言</Link>
-                    <Link onClick={this.onReplyWords.bind(this, words.wordsArticleId)}>回复</Link>
+                    <Link className="del" onClick={this.onDelWords.bind(this, words.articleId, words.wordsArticleId)}>删除留言</Link>
+                    <Link onClick={this.onReplyWords.bind(this, words.articleId, words.wordsArticleId)}>回复</Link>
                 </div>
                 <div className="reply">
                     <span>我的回复：</span>
                     <span>{words.wordsReply}</span>
-                    <Link onClick={this.onDelReply.bind(this, words.wordsArticleId)}>删除回复</Link>
+                    <Link onClick={this.onDelReply.bind(this, words.articleId, words.wordsArticleId)}>删除回复</Link>
                 </div>
             </li>
         });

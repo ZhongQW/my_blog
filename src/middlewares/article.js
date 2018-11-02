@@ -39,7 +39,7 @@ export default store => next => action => {
             });
     }else if (action.type === 'ONEARTICLEWORDS') {
         // console.log(action.data);
-        request.post('http://localhost:8888/words/getwords')
+        request.post('http://localhost:8888/article/getwords')
             .send(action.data)
             .end((err, res) => {
                 if (err) {
@@ -48,6 +48,45 @@ export default store => next => action => {
                     alert(res.body.result);
                 }else{
                     next({type: "ONE_ARTICLE_WORDS", data: res.body.result});
+                }
+            });
+    }else if (action.type === 'ARTICLEDELWORDS') {
+        // console.log(action.data);
+        request.post('http://localhost:8888/article/articledelwords')
+            .send(action.data)
+            .end((err, res) => {
+                if (err) {
+                    alert(err.result);
+                }else if(res.body.error){
+                    alert(res.body.result);
+                }else{
+                    next({type: "ARTICLE_DEL_WORDS", data: res.body.result});
+                }
+            });
+    }else if (action.type === 'ARTICLEREPLYWORDS') {
+        // console.log(action.data);
+        request.post('http://localhost:8888/article/articlereplywords')
+            .send(action.data)
+            .end((err, res) => {
+                if (err) {
+                    alert(err.result);
+                }else if(res.body.error){
+                    alert(res.body.result);
+                }else{
+                    next({type: "ARTICLE_REPLY_WORDS", data: res.body.result});
+                }
+            });
+    }else if (action.type === 'ARTICLEDELREPLY') {
+        // console.log(action.data);
+        request.post('http://localhost:8888/article/articledelreply')
+            .send(action.data)
+            .end((err, res) => {
+                if (err) {
+                    alert(err.result);
+                }else if(res.body.error){
+                    alert(res.body.result);
+                }else{
+                    next({type: "ARTICLE_DEL_REPLY", data: res.body.result});
                 }
             });
     }

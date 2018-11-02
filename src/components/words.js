@@ -11,27 +11,27 @@ export default class Words extends Component{
     componentDidMount(){
         this.props.onGetWords();
     }
-    onReply(id){
+    onBlogReply(id){
         const text = prompt("留言回复：");
         if(text) {
             const data = {
                 id: id,
                 value: text
             };
-            this.props.onReplyWords(data);
+            this.props.onBlogReplyWords(data);
         }
     }
-    onDelete(id){
+    onBlogDelete(id){
         const data ={
             id: id
         };
-        this.props.onDeleteWords(data);
+        this.props.onBlogDeleteWords(data);
     }
-    onDelReply(id){
+    onBlogDelReply(id){
         const data ={
             id: id
         };
-        this.props.onDeleteWordsReply(data);
+        this.props.onBlogDeleteWordsReply(data);
     }
     render(){
         // console.log(this.props);
@@ -42,15 +42,15 @@ export default class Words extends Component{
                 <td>{words.wordsTime}</td>
                 <td>{words.wordsContent}</td>
                 <td>{words.wordsReply}</td>
-                <td onClick={this.onDelReply.bind(this, words.wordsBlogId)}>删除</td>
-                <td onClick={this.onReply.bind(this, words.wordsBlogId)}>回复</td>
-                <td onClick={this.onDelete.bind(this, words.wordsBlogId)}>删除留言</td>
+                <td onClick={this.onBlogDelReply.bind(this, words.wordsBlogId)}>删除</td>
+                <td onClick={this.onBlogReply.bind(this, words.wordsBlogId)}>回复</td>
+                <td onClick={this.onBlogDelete.bind(this, words.wordsBlogId)}>删除留言</td>
             </tr>
         });
         return(
             <div id="words">
-                <div id="words_" cellPadding="16">
-                    <table>
+                <div id="words_">
+                    <table cellPadding="16">
                         <tbody>
                         <tr>
                             <th>留言者姓名</th>
