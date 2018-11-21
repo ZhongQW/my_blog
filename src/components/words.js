@@ -5,7 +5,10 @@
     Time: 20:08
 */
 import React,{Component} from 'react';
+import PropTypes from 'prop-types';
+
 import '../public/css/words.css'
+import Info from "./info";
 
 export default class Words extends Component{
     componentDidMount(){
@@ -68,3 +71,11 @@ export default class Words extends Component{
         )
     }
 }
+
+Words.propTypes = {
+    onGetWords: PropTypes.func.isRequired,
+    onBlogReplyWords: PropTypes.func.isRequired,
+    onBlogDeleteWords: PropTypes.func.isRequired,
+    onBlogDeleteWordsReply: PropTypes.func.isRequired,
+    wordsInfo: PropTypes.object.isRequired
+};

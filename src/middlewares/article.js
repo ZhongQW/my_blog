@@ -8,7 +8,7 @@ import request from 'superagent';
 
 export default store => next => action => {
     if (action.type === 'GETARTICLEINFO') {
-        request.post('http://localhost:8888/article/getall')
+        request.post('http://localhost:8888/article/getallarticle')
             .send()
             .end((err, res) => {
                 if (err) {

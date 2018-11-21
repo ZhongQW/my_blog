@@ -22,7 +22,7 @@ export default store => next => action => {
                 }
             });
     }else if (action.type === 'UPDATE') {
-        // alert(action.data.val);
+        // alert(action.data.type);
         request.post('http://localhost:8888/article/update')
             .send(action.data)
             .end((err, res) => {

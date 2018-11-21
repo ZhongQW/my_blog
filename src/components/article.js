@@ -6,7 +6,10 @@
 */
 import React,{Component} from 'react';
 import {Link} from 'react-router';
+import PropTypes from 'prop-types';
+
 import '../public/css/article.css';
+import Detail from "./detail";
 
 export default class Article extends Component{
     componentDidMount(){
@@ -64,9 +67,38 @@ export default class Article extends Component{
     render(){
         // console.log(this.props);
         const articleList = this.props.articleInfo.map((article) => {
+            let type;
+            switch(article.articleType){
+                case '1':
+                    type = '生活'; break;
+                case '2':
+                    type = '日记'; break;
+                case '3':
+                    type = '美文'; break;
+                case '10':
+                    type = 'java'; break;
+                case '11':
+                    type = 'python'; break;
+                case '12':
+                    type = 'c'; break;
+                case '13':
+                    type = 'javascript'; break;
+                case '14':
+                    type = 'css'; break;
+                case '15':
+                    type = 'html'; break;
+                case '16':
+                    type = 'bug调试'; break;
+                case '17':
+                    type = '干货'; break;
+                case '100':
+                    type = '精选'; break;
+                default:
+                    type = 'javascript'; break;
+            }
             return <tr onClick={this.onHandleThisWords.bind(this, article.articleId)} key={article.articleId}>
                 <td>{article.articleTitle}</td>
-                <td>{article.articleType}</td>
+                <td>{type}</td>
                 <td>{article.articleTime}</td>
                 <td>{article.articleVisit}</td>
                 <td>{article.articleLover}</td>
@@ -134,3 +166,15 @@ export default class Article extends Component{
         )
     }
 }
+
+Article.propTypes = {
+    onArticleInfo: PropTypes.func.isRequired,
+    onUpdateArticle: PropTypes.func.isRequired,
+    onDeleteArticle: PropTypes.func.isRequired,
+    onWordsOne: PropTypes.func.isRequired,
+    onDelWords: PropTypes.func.isRequired,
+    onReplyWords: PropTypes.func.isRequired,
+    onDelReply: PropTypes.func.isRequired,
+    articleInfo: PropTypes.object.isRequired,
+    articleWords: PropTypes.object.isRequired
+};

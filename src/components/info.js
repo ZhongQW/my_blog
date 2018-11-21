@@ -5,8 +5,12 @@
     Time: 18:42
 */
 import React,{Component} from 'react';
+import PropTypes from 'prop-types';
+import {Link} from 'react-router';
+
 import '../public/css/info.css';
 import '../public/js/font-awesome/font-awesome-4.7.0/css/font-awesome.min.css';
+import Nav from "./nav";
 
 export default class Info extends Component{
     componentDidMount(){
@@ -30,13 +34,13 @@ export default class Info extends Component{
         e.target.value = '';
     }
     render(){
-        console.log(this.props);
+        // console.log(this.props);
         return(
         <div id="info_back">
            <div id="info">
                 <div className="updata">
                     <i className="fa fa-envira" aria-hidden="true"/>
-                    <a data-toggle="modal" data-target="#addMovie">修改资料</a>
+                    <Link data-toggle="modal" data-target="#addMovie">修改资料</Link>
                 </div>
                 <ul>
                     <li>
@@ -166,3 +170,9 @@ export default class Info extends Component{
         )
     }
 }
+
+Info.propTypes = {
+    onUserInfo: PropTypes.func.isRequired,
+    onUpdataInfo: PropTypes.func.isRequired,
+    userInfo: PropTypes.object.isRequired
+};

@@ -5,9 +5,11 @@
     Time: 21:32
 */
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 import '../public/css/login.css';
 import "../public/js/font-awesome/font-awesome-4.7.0/css/font-awesome.min.css"
+import Nav from "./nav";
 
 export default class Loginmanage extends Component {
     componentDidMount(){
@@ -54,8 +56,8 @@ export default class Loginmanage extends Component {
         });
         return(
             <div id="login_manage_back">
-                <div id="login_manage" cellPadding="20">
-                <table>
+                <div id="login_manage" >
+                <table cellPadding="20">
                     <tbody>
                     <tr>
                         <th>登录名</th>
@@ -114,3 +116,10 @@ export default class Loginmanage extends Component {
         )
     }
 }
+
+Loginmanage.propTypes = {
+    onLoginInfo: PropTypes.func.isRequired,
+    onAddLogin: PropTypes.func.isRequired,
+    onDelLogin: PropTypes.func.isRequired,
+    loginInfo: PropTypes.object.isRequired
+};

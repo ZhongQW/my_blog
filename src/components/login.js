@@ -5,10 +5,12 @@
     Time: 17:56
 */
 import React,{Component} from 'react';
+import PropTypes from 'prop-types';
 import {browserHistory} from 'react-router';
 
 import '../public/css/index.css';
 import "../public/js/font-awesome/font-awesome-4.7.0/css/font-awesome.min.css"
+import Nav from "./nav";
 
 
 export default class Login extends Component{
@@ -47,3 +49,7 @@ export default class Login extends Component{
         )
     }
 }
+
+Login.propTypes = {
+    onLogin: PropTypes.func.isRequired
+};
